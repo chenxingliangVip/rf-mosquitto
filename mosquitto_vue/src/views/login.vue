@@ -2,29 +2,37 @@
 	<div class="Login">
 		<div class="Header">
 			<h3>
-				<img class="logo_img" src="@/assets/img/logo_icon.png">
+				<img class="logo_img" src="@/assets/img/Login_logo.png">
 				<i></i>
-				威尔生产运营管理系统
-				<span>欢迎您，请登录</span>
+				睿采智连
 			</h3>
+            <div class="header_top_title">
+                <span>2020©睿孚科技</span>
+                <span class="split">/</span>
+                <span>睿采智连数据采集测试端</span>
+            </div>
 		</div>
-		<div class="LoginBody Login_input">
-			<div class="Login-top">威尔生产运营管理系统</div>
-			<el-form :model="LoginForm" ref="LoginForm" class="demo-ruleForm LoginForm">
+		<div class="device_img">
+			<img src="@/assets/img/Login_device.png"/>
+		</div>
+		<div class="loginBody login_input">
+			<div class="login-top">
+				<div class="tab">
+					睿采智连· ReLink
+				</div>
+			</div>
+			<el-form ref="LoginForm" class="demo-ruleForm">
 				<el-form-item>
-					<el-input v-model="LoginForm.name" placeholder="请输入用户名" class="LoginInput">
+					<el-input v-model="LoginForm1.name" placeholder="请输入用户名" class="loginInput">
 						<i slot="prefix" class="el-input__icon el-icon-user"></i>
 					</el-input>
 				</el-form-item>
 				<el-form-item prop="password">
-					<el-input type="password" v-model="LoginForm.password" autocomplete="off" show-password placeholder="请输入密码" @keyup.enter.native="LoginSubmit" class="LoginInput">
+					<el-input type="password" v-model="LoginForm1.password" autocomplete="off" show-password placeholder="请输入密码" @keyup.enter.native="LoginSubmit" class="loginInput">
 						<i slot="prefix" class="el-input__icon el-icon-lock"></i>
 					</el-input>
 				</el-form-item>
-				<el-form-item prop="password">
-					<el-checkbox class="remember" v-model="LoginForm.remember">记住用户</el-checkbox>
-				</el-form-item>
-					<div class="Login-button" @click="LoginSubmit">登 录</div>
+				<div class="login-button" @click="LoginSubmit">登 录</div>
 			</el-form>
 		</div>
 		<div class="footer">
@@ -39,87 +47,131 @@
 		name: 'Login',
 		data() {
 			return {
-				LoginForm: {
+				tabType: 1,
+				LoginForm1: {
 					name: '',
 					password: '',
-					remember: false
+					type: 1,
 				},
 			}
 		},
 		methods:{
 			LoginSubmit(){
-        let self = this;
-        let param = {userAccount:self.LoginForm.name,password:self.LoginForm.password};
-        self.$http({
-          url: "/mosquitto/login",
-          method: "post",
-          params:param
-        }).then(resp => {
+                if(this.LoginForm1.name){
+                    if(this.LoginForm1.password){
+                        //登录成功
+                        sessionStorage.setItem('loginStatus',1) //设置登录状态为已登录
+                        sessionStorage.setItem('userInfo', JSON.stringify(this.LoginForm1)) //记录登录信息
 
-        });
+                        this.$router.addRoutes([getRoutePages()])//添加路由
+                        this.$router.push({
+                            name:'DataCollect'
+                        })
+                        return;
+                    }
+                    this.$message.error('密码不能为空!');
+                    return;
+                }else{
+                    this.$message.error('用户名不能为空!');
+                }
 			}
 		},
 	}
 </script>
 
 <style scoped lang="scss">
-	$baseColor: #34BFC6;
 	.Login {
-		background-image: url(../assets/img/banner_bg2.png);
+		background-image: url(../assets/img/banner_bg1.png);
 		height: 100%;
 		background-size: cover;
-		width: 100%;
+		position: relative;
 		.Header {
 			height: 60px;
 			line-height: 60px;
-			color: #fff;
-			background: #368ae0;
+			color: #e31d1a;
+			background: rgba(255, 255, 255, .8);
+            position: relative;
 			h3 {
 				width: 100%;
-				margin: 0 auto;padding: 0 100px;
-				font-size: 24px;
+				margin: 0 auto;padding: 0 170px;
+				font-size: 22px;
 				font-weight: normal;
+                position: relative;
+                font-family: SimHei;
 			}
 			span {
-				font-size: 14px;
 				font-weight: 400;
 				float: right;
+                color: #34bfc6;
 			}
 			.logo_img {
-				height: 60px;
-				float: left;
+                position: absolute;
+				top: 14px;
+                left: 100px;
+			}
+            .header_top_title {
+                position: absolute;
+                right: 10px;
+                top: 0;
+                color: #666;
+                font-size: 12px;
+                .split {
+                    margin: 0 10px;
+                }
+            }
+		}
+		.device_img {
+			position: absolute;
+			top: 50vh;
+			left: 15%;
+			img {
+				height: 100px;
 			}
 		}
-		.LoginBody {
-			width: 600px;
-			margin: 0 auto;
-			height: 380px;
-			background-color: rgba(241,169,169, 0.8);
-			margin-top: calc(50vh - 280px);
-			box-shadow: 0 0 20px #ffffff;
-			padding: 40px 50px;
-			border-radius: 10px;
-			.Login-top {
-				font-size: 24px;
+		.loginBody {
+			width: 450px;
+			position: absolute;
+    		right: 15%;
+			top: 30vh;
+			height: 280px;
+			background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 20px #34bfc6;    
+            padding: 20px;
+			.login-top {
 				box-sizing: border-box;
-				color: #ffffff;
-				margin-bottom: 30px;
-				text-align: center;
+				margin-bottom: 20px;
+                text-align: center;
+                display: flex;
+                font-size: 14px;
+                color: #c7c7c7;
+                .tab {
+                	width: 100%;
+                	text-align: center;
+                	cursor: pointer;
+					color: #34bfc6;
+                    font-size: 22px;
+                }
+                .split {
+                	width: 20%;
+                }
 			}
-			.Login-button {
+			.login-button {
 				cursor: pointer;
-				width: 80%;
+				width: 100%;
 				text-align: center;
 				padding: 10px 0px;
-				background-color: $baseColor;
-				margin: 0 auto;
-				color: #ffffff;
+				background-color: #34bfc6;
+				margin: 30px auto auto;
+				color: #FFFFFF;
 				font-size: 14px;
-				border-radius: 25px;
+				border-radius: 30px;
 				&:active{
                     opacity: 0.8;
                 }
-			}
+            }
+            .el-form {
+                padding: 0 30px;
+            }
 		}
 		.footer {
 			color: #ffffff;

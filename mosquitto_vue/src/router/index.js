@@ -39,6 +39,11 @@ export default new Router({
             meta: {title: '产线实时看板'},
             component: () => import("@/views/BigScreen/ProductLine/Index")
         }, {
+            path: '/DataCollect',
+            name: 'DataCollect',
+            meta: {title: '数据采集'},
+            component: () => import("@/views/BigScreen/DataCollect/index")
+        }, {
             path: '/*',
             name: 'noFound',
             component: () => import("@/views/page403")
