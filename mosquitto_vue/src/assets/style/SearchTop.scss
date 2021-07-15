@@ -1,0 +1,139 @@
+$baseColor: #34BFC6;
+
+.Search_Top_Input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .search_list {
+        width: calc(100% - 200px);
+        .input_flex {
+            margin-bottom: 10px;
+            margin-right: 10px;
+            width: 200px;
+            float: left;
+            &.search {
+                width: 120px !important;
+            }
+        }
+        .search_left {
+            float: left;
+            width: 72px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .el-input,.el-select,.el-cascader {
+            // width: calc(100% - 72px);
+            width: 100%;
+            float: right;
+        }
+        .el-button.is-circle {
+            padding: 10px;
+        }
+        .search_img {
+            width: 20px;
+            margin-top: 6px;
+            margin-left: 10px;
+            cursor: pointer;
+            opacity: .9;
+            &:hover {
+                opacity: .7;
+                transition: all .3s;
+            }&:focus {
+                opacity: 1;
+                transition: all .3s;
+            }
+        }
+    }
+    .addNew {
+        width: 200px;
+        float: right;
+        text-align: right;
+        height: 26px;
+        line-height: 26px;
+        cursor: pointer;
+        span {
+            background: #3f9dd3;
+            color: #ffffff;
+            border-radius: 14px;
+            text-align: center;
+            display: inline-block;
+            padding: 0 10px;
+            margin-left: 10px;
+            &:hover {
+                opacity: .8;
+                transition: all .3s;
+            }
+        }
+        .delete {
+            background: #fd6b6b;
+        }
+        .stop {
+            background: #909399;
+        }
+        .download {
+            background-color: #67C23A;
+        }
+        .windup {
+            background-color: #F56C6C;
+        }
+        .bill {
+            background-color: #df7f5c;
+        }
+        .void {
+            background-color: #feba8b;
+        }
+        .yuehe {
+            background-color: #7cc6f7;
+        }
+        .warning {
+            background-color: #E6A23C;
+        }
+    }
+    .el-range-editor.el-input__inner {
+        // width: 65%;
+        width: 100%;
+    }
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        font-size: 12px;
+    }
+    .zll-search {
+        background: $baseColor;
+        border: 1px solid $baseColor;
+        color: #ffffff;
+        border-radius: 5px;
+        text-align: center;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 10px;
+        cursor: pointer;
+        &:hover {
+            transition: all .3s;
+            opacity: .8;
+        }
+        margin-left: 20px;
+    }
+    .zll-search-reset {
+        border: 1px solid #ccc;
+        color: #aaaaaa;
+        border-radius: 5px;
+        text-align: center;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 10px;
+        cursor: pointer;
+        &:hover {
+            transition: all .3s;
+            opacity: .8;
+        }
+    }
+}
+
