@@ -53,6 +53,22 @@
             .user {
                 width: 40%;
                 text-align: center;
+                cursor: pointer;
+                position: relative;
+                &:hover {
+                    .loginOut {
+                        display: block;
+                    }
+                }
+                .loginOut {
+                    display: none;
+                    background: rgba(87, 129, 129, 0.5);
+                    position:absolute;
+                    width: 120px;
+                    text-align: center;
+                    right: 10px;
+                    border-radius: 5px;
+                }
             }
         }
     }
@@ -83,6 +99,9 @@
                         height: 30px;
                         line-height: 30px;
                         padding: 0;
+                        &.bj {
+                            background: #ff4949;
+                        }
                     }
                     .right {
                         width: calc(100% - 120px);
@@ -93,6 +112,56 @@
                             color: #a7a7a7;
                             margin-right: 10px;
                         }
+                        &.sh {
+                            border: 2px solid #13ce66;
+                            height: 30px;
+                            line-height: 30px;
+                            padding: 0 3px;
+                            border-radius: 30px;
+                            @keyframes twinkling{ 
+                                0%{ 
+                                    opacity: 0; 
+                                } 
+                                100%{ 
+                                    opacity: 1; 
+                                } 
+                            }
+                            .share {
+                                color: #ffffff;
+                                background: #13ce66;
+                                text-align: center;
+                                height: 20px;
+                                line-height: 20px;
+                                border-radius: 20px;
+                                margin-top: 3px;
+                                animation: twinkling 1s infinite;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .part-2 {
+            margin-top: 40px;
+            .nav-main {
+                height: 35px;
+                line-height: 35px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                margin: 0 auto 20px;
+                color: #a7a7a7;
+                .nav1,.nav2 {
+                    width: 25%;
+                    .nav {
+                        width: 80%;
+                        margin-left: 20%;
+                    }
+                }
+                .nav3 {
+                    width: 50%;
+                    .nav {
+                        width: 80%;
                     }
                 }
             }

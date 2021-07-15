@@ -1,6 +1,6 @@
 <template>
     <div class="DataCollect">
-		<nx-full-screen class="allfull screenfull" style="float: right"></nx-full-screen>
+		<nx-full-screen class="allfull screenfull" style="float: right;position: relative;z-index: 1111;"></nx-full-screen>
         
         <div class="header">
             <p class="title">睿采智连 · 实时数据采集</p>
@@ -14,8 +14,12 @@
                     <p class="time">{{nowDate}} {{nowWeek}} {{nowTime}} </p>
                 </div>
                 <div class="user">
-                    {{userName}}
-                </div>
+                    <span>{{userName}}</span>
+                    <span class="el-icon-caret-bottom"></span>
+                    <div class="loginOut">
+                        <p class="out" @click="loginOut">退出登录</p>
+                    </div>
+                </div> 
             </div>
         </div>
 
@@ -46,7 +50,7 @@
                 <div class="nav-main">
                     <div class="input_style">
                         <span class="left">当前状态</span>
-                        <div class="zll-botton right">报警</div>
+                        <div class="zll-botton right bj">报警</div>
                     </div>
                     <div class="input_style">
                         <span class="left">时间戳</span>
@@ -68,7 +72,9 @@
                 <div class="nav-main">
                     <div class="input_style">
                         <span class="left">Relink</span>
-                        <div class="right"></div>
+                        <div class="right sh">
+                            <div class="share">Relink</div>
+                        </div>
                     </div>
                     <div class="input_style"></div>
                     <div class="input_style">
@@ -153,7 +159,20 @@
             
             <div class="part-2">
                 <div class="nav-main">
-                    
+                    <div class="nav1">报警代码</div>
+                    <div class="nav2">代码类型</div>
+                    <div class="nav3">报警内容</div>
+                </div>
+                <div class="nav-main" v-for="(item,index) in formData.data27" :key="index">
+                    <div class="nav1">
+                        <el-input class="nav" v-model="item.data1" placeholder=""></el-input>
+                    </div>
+                    <div class="nav2">
+                        <el-input class="nav" v-model="item.data2" placeholder=""></el-input>
+                    </div>
+                    <div class="nav3">
+                        <el-input class="nav" v-model="item.data3" placeholder=""></el-input>
+                    </div>
                 </div>
             </div>
         </div>
@@ -196,6 +215,11 @@ export default {
                 data24:'0',
                 data25:'0',
                 data26:'0',
+                data27: [
+                    {data1: '100',data2: 'SW',data3: '繁体字乱码',},
+                    {data1: '1001',data2: 'EX',data3: 'EMERGENCY STOP IS ACTIVATED',},
+                    {data1: '12',data2: '',data3: '',},
+                ] 
             }
         }
     },
@@ -215,6 +239,12 @@ export default {
             _this.nowTime = hou + ':' + min + ':' + sec;
             _this.nowDate = yy + '/' + mm + '/' + dd
             _this.nowWeek = week
+        },
+        loginOut() {
+            sessionStorage.clear();
+             this.$router.push({
+                name:'Login'
+            })
         },
     },
     components: {
