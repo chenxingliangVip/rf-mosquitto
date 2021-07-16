@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     min-height: 1040px;
-    background: url('../../../assets/img/bg.png');
+    background: rgb(15, 39, 61);
     background-size: cover;
 	transform-origin: left top 0;
     color: #eeeeee;
@@ -30,12 +30,13 @@
             justify-content: flex-end;
             padding-right: 30px;
             .zll-botton {
-                width: 20%;
+                width: 100px;
                 height: 30px;
                 line-height: 30px;
                 padding: 0;
                 float: left;
-                margin-right: 30px;
+                margin: 0;
+                margin-right: 10px;
                 font-size: 14px;
             }
         }
@@ -73,23 +74,27 @@
         }
     }
     .main_contain {
-        padding: 0 20px;
+        padding: 0 200px;
         .part-1 {
             display: flex;
             margin-top: 50px;
             .nav-main {
-                width: 33.33%;
+                width: 40%;
+                &.nav-main1 {
+                    width: 20%;
+                }
                 .input_style {
                     display: flex;
                     align-items: center;
-                    margin: 0 auto 25px;
-                    height: 35px;
-                    line-height: 35px;
+                    margin: 0 auto 24px;
+                    margin-right: 0;
+                    height: 30px;
+                    line-height: 30px;
                     width: 80%;
                     .left {
                         width: 120px;
-                        height: 35px;
-                        line-height: 35px;
+                        height: 30px;
+                        line-height: 30px;
                         text-align: right;
                         padding-right: 15px;
                         color: #a7a7a7;
@@ -103,8 +108,40 @@
                             background: #ff4949;
                         }
                     }
+                    .item {
+                        width: calc(100% - 120px);
+                        display: flex;
+                        .right1 {
+                            margin: 0 10px;
+                        }
+                    }
                     .right {
                         width: calc(100% - 120px);
+                        text-align: center;
+                        color: #78f7fd;
+                        border: 1px solid #7d7a7a;
+                        border-radius: 5px;
+                        height: 30px;
+                        line-height: 28px;
+                        overflow: hidden;
+                        &.noBorder {
+                            border: 0;
+                        }
+                        &.position {
+                            display: flex;
+                            .item1 {
+                                text-align: right;
+                                width: 80px;
+                            }
+                            .item2 {
+                                text-align: right;
+                                width: 80px;
+                            }
+                            .split {
+                                width: 18px;
+                                text-align: center;
+                            }
+                        }
                         .nav {
                             width: calc(33.33% - 10px);
                             text-align: center;
@@ -113,28 +150,31 @@
                             margin-right: 10px;
                         }
                         &.sh {
-                            border: 2px solid #13ce66;
+                            width: 210px;
+                            border: 1px solid #87c04d;
                             height: 30px;
                             line-height: 30px;
-                            padding: 0 3px;
                             border-radius: 30px;
+                            padding-left: 3px;
+                            padding-right: 3px;
                             @keyframes twinkling{ 
-                                0%{ 
+                                0%, 50%{ 
                                     opacity: 0; 
                                 } 
-                                100%{ 
+                                51%,100%{ 
                                     opacity: 1; 
                                 } 
                             }
                             .share {
-                                color: #ffffff;
-                                background: #13ce66;
+                                color: #080d29;
+                                background: #87c04d;
                                 text-align: center;
-                                height: 20px;
-                                line-height: 20px;
+                                width: 200px;
+                                // height: 22px;
+                                // line-height: 22px;
                                 border-radius: 20px;
                                 margin-top: 3px;
-                                animation: twinkling 1s infinite;
+                                animation: twinkling 1s infinite linear;
                             }
                         }
                     }
@@ -144,24 +184,36 @@
         .part-2 {
             margin-top: 50px;
             .nav-main {
-                height: 35px;
-                line-height: 35px;
+                height: 30px;
+                line-height: 30px;
                 display: flex;
                 align-items: center;
                 text-align: center;
-                margin: 0 auto 25px;
+                margin: 0 auto 20px;
                 color: #a7a7a7;
+                .right {
+                    text-align: center;
+                    color: #78f7fd;
+                    border: 1px solid #7d7a7a;
+                    border-radius: 5px;
+                    height: 30px;
+                    line-height: 28px;
+                    overflow: hidden;
+                }
                 .nav1,.nav2 {
-                    width: 25%;
+                    width: 20%;
                     .nav {
-                        width: 80%;
-                        margin-left: 20%;
+                        width: 60%;
+                        margin: 0 auto;
+                        margin-right: 0;
                     }
                 }
                 .nav3 {
-                    width: 50%;
+                    width: 60%;
                     .nav {
-                        width: 80%;
+                        width: 90%;
+                        margin: 0 auto;
+                        margin-right: 0;
                     }
                 }
             }

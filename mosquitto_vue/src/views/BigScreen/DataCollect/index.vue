@@ -25,114 +25,139 @@
 
         <div class="main_contain">
             <div class="part-1">
-                <div class="nav-main">
+                <div class="nav-main nav-main1">
                     <div class="input_style">
                         <span class="left">设备编号</span>
-                        <el-input class="right" v-model="formData.data1" placeholder="请输入设备编号"></el-input>
+                        <div class="right">{{formData.data1}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">数控系统</span>
-                        <el-input class="right" v-model="formData.data2" placeholder="请输入数控系统"></el-input>
+                        <div class="right">{{formData.data2}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">运行模式</span>
-                        <el-input class="right" v-model="formData.data3" placeholder="请输入运行模式"></el-input>
+                        <div class="right">{{formData.data3}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">轴名称</span>
-                        <el-input class="right" v-model="formData.data4" placeholder="请输入轴名称"></el-input>
+                        <div class="right">{{formData.data4}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">所有刀具</span>
-                        <el-input class="right" v-model="formData.data5" placeholder="请输入所有刀具"></el-input>
+                        <div class="right">{{formData.data5}}</div>
                     </div>
                 </div>
                 <div class="nav-main">
                     <div class="input_style">
                         <span class="left">当前状态</span>
-                        <div class="zll-botton right bj">报警</div>
+                        <div class="zll-botton bj">报警</div>
                     </div>
                     <div class="input_style">
                         <span class="left">时间戳</span>
-                        <el-input class="right" v-model="formData.data6" placeholder="请输入时间戳"></el-input>
+                        <div class="right">{{formData.data6}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">程序名</span>
-                        <el-input class="right" v-model="formData.data7" placeholder="请输入程序名"></el-input>
+                        <div class="right">{{formData.data7}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">程序段</span>
-                        <el-input class="right" v-model="formData.data8" placeholder="请输入程序段"></el-input>
+                        <div class="right">{{formData.data8}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">当前刀具</span>
-                        <el-input class="right" v-model="formData.data9" placeholder="请输入当前刀具"></el-input>
+                        <div class="right">{{formData.data9}}</div>
                     </div>
                 </div>
                 <div class="nav-main">
                     <div class="input_style">
                         <span class="left">Relink</span>
                         <div class="right sh">
-                            <div class="share">Relink</div>
+                            <!-- <div class="share">Relink</div> -->
+                            <img class="share" src="@/assets/img/shing.png" alt="">
                         </div>
                     </div>
                     <div class="input_style"></div>
                     <div class="input_style">
                         <span class="left">主轴 ℃</span>
-                        <el-input class="right" v-model="formData.data10" placeholder="请输入主轴"></el-input>
+                        <div class="right">{{formData.data10}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">伺服轴 ℃</span>
-                        <el-input class="right" v-model="formData.data11" placeholder="请输入伺服轴"></el-input>
+                        <div class="right">{{formData.data11}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">编码器 ℃</span>
-                        <el-input class="right" v-model="formData.data12" placeholder="请输入编码器"></el-input>
+                        <div class="right">{{formData.data12}}</div>
                     </div>
                 </div>
             </div>
             <div class="part-1">
-                <div class="nav-main">
+                <div class="nav-main nav-main1">
                     <div class="input_style">
                         <span class="left">开机时长</span>
-                        <el-input class="right" v-model="formData.data13" placeholder="请输入开机时长"></el-input>
+                        <div class="right">{{formData.data13}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">运行时长</span>
-                        <el-input class="right" v-model="formData.data14" placeholder="请输入运行时长"></el-input>
+                        <div class="right">{{formData.data14}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">切削时长</span>
-                        <el-input class="right" v-model="formData.data15" placeholder="请输入切削时长"></el-input>
+                        <div class="right">{{formData.data15}}</div>
                     </div>
                     <div class="input_style">
                         <span class="left">循环时长</span>
-                        <el-input class="right" v-model="formData.data16" placeholder="请输入循环时长"></el-input>
+                        <div class="right">{{formData.data16}}</div>
                     </div>
                 </div>
                 <div class="nav-main">
                     <div class="input_style">
                         <span class="left">绝对位置</span>
-                        <el-input class="right" v-model="formData.data17" placeholder="请输入绝对位置"></el-input>
+                        <div class="right position">
+                            <span class="item1">-85.775</span>
+                            <span class="split">，</span>
+                            <span class="item2">85.678</span>
+                            <span class="split">，</span>
+                            <span class="item1">287.815</span>
+                        </div>
                     </div>
                     <div class="input_style">
                         <span class="left">相对位置</span>
-                        <el-input class="right" v-model="formData.data18" placeholder="请输入相对位置"></el-input>
+                        <div class="right position">
+                            <span class="item1">97.873</span>
+                            <span class="split">，</span>
+                            <span class="item2">-87.363</span>
+                            <span class="split">，</span>
+                            <span class="item1">-188.516</span>
+                        </div>
                     </div>
                     <div class="input_style">
                         <span class="left">当前位置</span>
-                        <el-input class="right" v-model="formData.data19" placeholder="请输入当前位置"></el-input>
+                        <div class="right position">
+                            <span class="item1">97.873</span>
+                            <span class="split">，</span>
+                            <span class="item2">-87.363</span>
+                            <span class="split">，</span>
+                            <span class="item1">-188.516</span>
+                        </div>
                     </div>
                     <div class="input_style">
                         <span class="left">进给量</span>
-                        <el-input class="right" v-model="formData.data20" placeholder="请输入进给量"></el-input>
+                        <div class="right position">
+                            <span class="item1">0.0</span>
+                            <span class="split">，</span>
+                            <span class="item2">0.0</span>
+                            <span class="split">，</span>
+                            <span class="item1">0.0</span>
+                        </div>
                     </div>
                 </div>
                 <div class="nav-main">
                     <div class="input_style"></div>
                     <div class="input_style">
                         <span class="left"></span>
-                        <div class="right">
+                        <div class="right noBorder">
                             <span class="nav">转速</span>
                             <span class="nav">倍率</span>
                             <span class="nav">负载</span>
@@ -140,18 +165,18 @@
                     </div>
                     <div class="input_style">
                         <span class="left">主轴</span>
-                        <div class="right">
-                            <el-input class="nav" v-model="formData.data21" placeholder="请输入转速"></el-input>
-                            <el-input class="nav" v-model="formData.data22" placeholder="请输入倍率"></el-input>
-                            <el-input class="nav" v-model="formData.data23" placeholder="请输入负载"></el-input>
+                        <div class="item">
+                            <div class="right">{{formData.data21}}</div>
+                            <div class="right right1">{{formData.data22}}</div>
+                            <div class="right">{{formData.data23}}</div>
                         </div>
                     </div>
                     <div class="input_style">
                         <span class="left">进给</span>
-                        <div class="right">
-                            <el-input class="nav" v-model="formData.data24" placeholder="请输入转速"></el-input>
-                            <el-input class="nav" v-model="formData.data25" placeholder="请输入倍率"></el-input>
-                            <el-input class="nav" v-model="formData.data26" placeholder="请输入负载"></el-input>
+                        <div class="item">
+                            <div class="right">{{formData.data24}}</div>
+                            <div class="right right1">{{formData.data25}}</div>
+                            <div class="right">{{formData.data26}}</div>
                         </div>
                     </div>
                 </div>
@@ -159,19 +184,19 @@
             
             <div class="part-2">
                 <div class="nav-main">
-                    <div class="nav1">报警代码</div>
-                    <div class="nav2">代码类型</div>
-                    <div class="nav3">报警内容</div>
+                    <div class="nav1"><p class="nav">报警代码</p></div>
+                    <div class="nav2"><p class="nav">代码类型</p></div>
+                    <div class="nav3"><p class="nav">报警内容</p></div>
                 </div>
                 <div class="nav-main" v-for="(item,index) in formData.data27" :key="index">
                     <div class="nav1">
-                        <el-input class="nav" v-model="item.data1" placeholder=""></el-input>
+                        <div class="right nav">{{item.data1}}</div>
                     </div>
                     <div class="nav2">
-                        <el-input class="nav" v-model="item.data2" placeholder=""></el-input>
+                        <div class="right nav">{{item.data2}}</div>
                     </div>
                     <div class="nav3">
-                        <el-input class="nav" v-model="item.data3" placeholder=""></el-input>
+                        <div class="right nav">{{item.data3}}</div>
                     </div>
                 </div>
             </div>
