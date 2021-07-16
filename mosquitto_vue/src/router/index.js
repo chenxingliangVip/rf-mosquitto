@@ -29,16 +29,6 @@ export default new Router({
             name: 'Login',
             component: () => import("@/views/login")
         }, {
-            path: '/Statistics',
-            name: 'Statistics',
-            meta: {title: '生产信息统计表'},
-            component: () => import("@/views/BigScreen/Statistics/Index")
-        }, {
-            path: '/ProductLine',
-            name: 'ProductLine',
-            meta: {title: '产线实时看板'},
-            component: () => import("@/views/BigScreen/ProductLine/Index")
-        }, {
             path: '/DataCollect',
             name: 'DataCollect',
             meta: {title: '数据采集'},
