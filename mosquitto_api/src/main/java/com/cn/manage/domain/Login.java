@@ -21,6 +21,10 @@ public class Login {
 
     private String accountStatus;
 
+    private String image;
+
+    private String phone;
+
     private String status;
 
     private Date createTime;
@@ -97,6 +101,22 @@ public class Login {
 
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus == null ? null : accountStatus.trim();
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public String getStatus() {

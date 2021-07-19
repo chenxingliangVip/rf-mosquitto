@@ -1,5 +1,7 @@
 package com.cn.manage.shiro;
 
+import com.cn.manage.api.ILoginService;
+import com.cn.manage.domain.Login;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -14,7 +16,8 @@ public class ShiroRealm  extends AuthorizingRealm {
 
     private Logger logger = LoggerFactory.getLogger(ShiroRealm.class);
 
-
+    @Autowired
+    ILoginService loginService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -32,20 +35,20 @@ public class ShiroRealm  extends AuthorizingRealm {
         String username = (String) authenticationToken.getPrincipal();
         char[] bytePwd = (char[]) authenticationToken.getCredentials();
         String password = String.valueOf(bytePwd);
-//        Login param = new Login();
-//        param.setUserAccount(username);
-//        param.setPassword(password);
-//        Login login = null;
-//        try {
-//            login = loginService.queryLogin(param);
-//        } catch (Exception e) {
-//        }
-//        if (login == null) {
-//            // 用户名不存在抛出异常
-//            throw new UnknownAccountException();
-//        }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo("",
-                "",getName());
+        Login param = new Login();
+        param.setUserAccount(username);
+        param.setPassword(password);
+        Login login = null;
+        try {
+            login = loginService.queryLogin(param);
+        } catch (Exception e) {
+        }
+        if (login == null) {
+            // 用户名不存在抛出异常
+            throw new UnknownAccountException();
+        }
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(login.getUserAccount(),
+                login.getPassword(),getName());
         return authenticationInfo;
     }
 }

@@ -43,9 +43,29 @@ public class LoginController {
         if(StringUtils.isNotBlank(login.getPassword())){
             login.setPassword(MD5Util.MD5(login.getPassword()));
         }
-        clientMQTT.start();
+        Login loginResult = loginService.queryLogin(login);
+        boolean success = false;
+        if(null != loginResult){
+            UsernamePasswordToken token = new UsernamePasswordToken(login.getUserAccount(), login.getPassword());
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(token);
+            response.setResult(loginResult);
+            success = true;
+        }
+        response.setSuccess(success);
         return response;
     }
+
+//    @ResponseBody
+//    @RequestMapping("/clientMQTT")
+//    public JsonResponse<Login> clientMQTT(Login login) throws Exception {
+//        JsonResponse<Login> response = new JsonResponse<Login>();
+//        if(StringUtils.isNotBlank(login.getPassword())){
+//            login.setPassword(MD5Util.MD5(login.getPassword()));
+//        }
+//        clientMQTT.start();
+//        return response;
+//    }
 
 
 }

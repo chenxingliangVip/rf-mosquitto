@@ -14,7 +14,7 @@
     </commentGenerator>
     <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
     <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                    connectionURL="jdbc:mysql://localhost:3306/sys_manage?serverTimezone=UTC" userId="root"
+                    connectionURL="jdbc:mysql://localhost:3306/mosquitto?serverTimezone=UTC" userId="root"
                     password="12344">
     </jdbcConnection>
     <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解
@@ -53,7 +53,7 @@
       <property name="trimStrings" value="true" />
     </javaClientGenerator>
     <!-- 指定数据库表 -->
-    <table schema="sys_manage" tableName="login" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+    <table schema="mosquitto" tableName="deptment" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
            enableUpdateByExample="true"></table>
   </context>
 </generatorConfiguration>

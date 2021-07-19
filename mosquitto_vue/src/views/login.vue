@@ -26,17 +26,17 @@
                :model="loginForm"
                class="demo-ruleForm">
         <el-form-item prop="username">
-          <el-input v-model="LoginForm.username" placeholder="请输入用户名" class="loginInput">
+          <el-input v-model="loginForm.username" placeholder="请输入用户名" class="loginInput">
             <i slot="prefix" class="el-input__icon el-icon-user"></i>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" v-model="LoginForm.password" autocomplete="off" show-password placeholder="请输入密码"
-                    @keyup.enter.native="LoginSubmit" class="loginInput">
+          <el-input type="password" v-model="loginForm.password" autocomplete="off" show-password placeholder="请输入密码"
+                    @keyup.enter.native="handleLogin" class="loginInput">
             <i slot="prefix" class="el-input__icon el-icon-lock"></i>
           </el-input>
         </el-form-item>
-        <div class="login-button" @click="LoginSubmit">登 录</div>
+        <div class="login-button" @click="handleLogin">登 录</div>
       </el-form>
     </div>
     <div class="footer">
@@ -48,6 +48,7 @@
 <script>
   import {getRoutePages} from '@/router'
   import { Loading } from 'element-ui';
+  import { setToken } from '@/utils/auth' // 验权
 
   export default {
     name: 'Login',
@@ -58,16 +59,16 @@
         } else {
           callback()
         }
-      }
+      };
       const validatePassword = (rule, value, callback) => {
         if (!value) {
           callback(new Error('请输入密码'))
         } else {
           callback()
         }
-      }
+      };
       return {
-        LoginForm: {
+        loginForm: {
           username: '',
           password: ''
         },
@@ -82,26 +83,25 @@
       }
     },
     methods: {
-      LoginSubmit() {
-        if (this.LoginForm1.name) {
-          if (this.LoginForm1.password) {
-            //登录成功
-            sessionStorage.setItem('loginStatus', 1) //设置登录状态为已登录
-            sessionStorage.setItem('userInfo', JSON.stringify(this.LoginForm1)) //记录登录信息
-
-            this.$router.addRoutes([getRoutePages()])//添加路由
-            this.$router.push({
-              name: 'DataCollect'
-            })
-            return;
-          }
-          this.$message.error('密码不能为空!');
-          return;
-        } else {
-          this.$message.error('用户名不能为空!');
-        }
-      },
-
+      // LoginSubmit() {
+      //   if (this.LoginForm.name) {
+      //     if (this.LoginForm.password) {
+      //       //登录成功
+      //       sessionStorage.setItem('loginStatus', 1) //设置登录状态为已登录
+      //       sessionStorage.setItem('userInfo', JSON.stringify(this.LoginForm)) //记录登录信息
+      //
+      //       this.$router.addRoutes([getRoutePages()])//添加路由
+      //       this.$router.push({
+      //         name: 'DataCollect'
+      //       })
+      //       return;
+      //     }
+      //     this.$message.error('密码不能为空!');
+      //     return;
+      //   } else {
+      //     this.$message.error('用户名不能为空!');
+      //   }
+      // },
       handleLogin() {
         let self = this;
         self.$refs.loginForm.validate(valid => {
@@ -109,14 +109,14 @@
             let loadingInstance = Loading.service({ fullscreen: true });
             let param = {userAccount:self.loginForm.username,password:self.loginForm.password};
             self.$http({
-              url: "/drug/login",
+              url: "/mosquitto/login",
               method: "post",
               params:param
             }).then(resp => {
               if (resp.success) {
                 self.$store.dispatch('user/setLoginUserDetail', resp.result).then(res => {
                   setToken(resp.result);
-                  self.$router.push({ path: "/home/index"});
+                  self.$router.push({ path: "/DataCollect"});
                   if(self.checked){
                     window.sessionStorage.setItem("login",JSON.stringify(param));
                   }else{
@@ -125,14 +125,15 @@
                 });
                 loadingInstance.close();
                 return
+              }else{
+                loadingInstance.close();
+                self.$notify({
+                  title: '提示',
+                  message: "用户名或密码错误！",
+                  type: 'error'
+                });
+                this.$refs['loginForm'].clearValidate();
               }
-              loadingInstance.close();
-              self.$notify({
-                title: '提示',
-                message: "用户名或密码错误！",
-                type: 'error'
-              });
-              this.$refs['loginForm'].clearValidate();
             });
           }
         })
