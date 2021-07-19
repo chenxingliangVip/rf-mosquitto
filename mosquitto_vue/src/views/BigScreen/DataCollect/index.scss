@@ -1,6 +1,7 @@
 .DataCollect {
     width: 100%;
     height: 100%;
+    min-width: 1200px;
     min-height: 1040px;
     background: rgb(15, 39, 61);
     background-size: cover;
@@ -79,18 +80,23 @@
             display: flex;
             margin-top: 50px;
             .nav-main {
-                width: 40%;
+                width: 37%;
                 &.nav-main1 {
-                    width: 20%;
+                    width: 26%;
+                    .input_style { 
+                        min-width: 200px;
+                    }
                 }
                 .input_style {
                     display: flex;
                     align-items: center;
                     margin: 0 auto 24px;
                     margin-right: 0;
+                    margin-left: 10px;   
                     height: 30px;
                     line-height: 30px;
                     width: 80%;
+                    min-width: 300px;
                     .left {
                         width: 120px;
                         height: 30px;
@@ -117,6 +123,7 @@
                     }
                     .right {
                         width: calc(100% - 120px);
+                        min-width: 28px;
                         text-align: center;
                         color: #78f7fd;
                         border: 1px solid #7d7a7a;
@@ -132,6 +139,7 @@
                             .item1 {
                                 text-align: right;
                                 width: 80px;
+                                padding-right: 5px
                             }
                             .item2 {
                                 text-align: right;
@@ -151,6 +159,7 @@
                         }
                         &.sh {
                             width: 210px;
+                            min-width: 150px;
                             border: 1px solid #87c04d;
                             height: 30px;
                             line-height: 30px;
@@ -169,7 +178,8 @@
                                 color: #080d29;
                                 background: #87c04d;
                                 text-align: center;
-                                width: 200px;
+                                width: 100%;
+                                height:22px;
                                 // height: 22px;
                                 // line-height: 22px;
                                 border-radius: 20px;
