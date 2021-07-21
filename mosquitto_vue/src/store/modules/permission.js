@@ -1,56 +1,21 @@
-import { asyncRouterMap, constantRouterMap } from '@/router'
-
-/**
- * Use meta.role to determine if the current user has permission
- * @param roles
- * @param route
- */
-function hasPermission(roles, route) {
-  if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.includes(role))
-  } else {
-    return true
-  }
-}
-
-/**
- * Filter asynchronous routing tables by recursion
- * @param routes asyncRoutes
- * @param roles
- */
-export function filterAsyncRoutes(routes, roles) {
-  const res = []
-
-  routes.forEach(route => {
-    const tmp = { ...route }
-    if (hasPermission(roles, tmp)) {
-      if (tmp.children) {
-        tmp.children = filterAsyncRoutes(tmp.children, roles)
-      }
-      res.push(tmp)
-    }
-  })
-
-  return res
-}
+import page from '../../router/page'
 
 const state = {
-  routes: [],
-  addRoutes: []
+  addRoutes: [],
+  routes: []
 }
 
 const mutations = {
   SET_ROUTES: (state, routes) => {
+    state.routes = routes;
     state.addRoutes = routes;
-    state.routes = asyncRouterMap.concat(routes)
-    
   }
 }
 
 const actions = {
   generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
-      commit('SET_ROUTES', constantRouterMap);
+      commit('SET_ROUTES', page);
       resolve()
     })
   }

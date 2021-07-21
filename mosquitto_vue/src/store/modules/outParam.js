@@ -1,18 +1,18 @@
 
 const state = {
-  userInfo:{},
+  outParam:{},
 };
 
 const mutations = {
-  SET_USER_INFO(state,user){
-    state.userInfo = user;
+  SET_OUT_PARAM(state,param){
+    state.outParam = param;
   },
 };
 
 const actions = {
-  setLoginUserDetail({commit},user) {
+  setOutParam({commit},param) {
     return new Promise(resolve => {
-      commit('SET_USER_INFO',user);
+      commit('SET_OUT_PARAM',param);
       resolve()
     })
   },

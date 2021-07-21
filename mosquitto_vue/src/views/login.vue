@@ -115,13 +115,8 @@
             }).then(resp => {
               if (resp.success) {
                 self.$store.dispatch('user/setLoginUserDetail', resp.result).then(res => {
+                  self.$router.push({path: '/DataCollect'});
                   setToken(resp.result);
-                  self.$router.push({ path: "/DataCollect"});
-                  if(self.checked){
-                    window.sessionStorage.setItem("login",JSON.stringify(param));
-                  }else{
-                    window.sessionStorage.removeItem("login");
-                  }
                 });
                 loadingInstance.close();
                 return

@@ -65,7 +65,7 @@
     </filter>
   </appender>
   <!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
-  <logger name="com.cn.drug" level="DEBUGGER" />
+  <logger name="com.cn.manage" level="DEBUGGER" />
   <!-- <logger name="com.lzy.dolphin" level="DEBUGGER" /> -->
   <logger name="ch.qos.logback" level="ERROR" />
   <logger name="org.springframework" level="INFO" />

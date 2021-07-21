@@ -2,7 +2,7 @@
     <div class="header" :style="{backgroundColor:$store.state.colorData.top.topBgColor,color:$store.state.colorData.top.topFontColor}">
         <div class="Title_header" :style="{backgroundColor:$store.state.colorData.top.topBgColor,color:$store.state.colorData.top.topFontColor}" >
             <img class="Roms" src="@/assets/img/logo_icon.png" />
-            <span class="splite">|</span> 威尔生产运营管理系统
+            <span class="splite">|</span> 数据采集系统
         </div>
         <!-- 右侧按钮 -->
         <div class="header_user" :style="{backgroundColor:$store.state.colorData.top.topBgColor,color:$store.state.colorData.top.topFontColor}">
@@ -24,7 +24,7 @@
             <div class="fold-icon" @click="setLeftMenuMin"><i :class="$store.state.leftMenuMin ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i></div>
             <div class="menuList">
                 <li v-for="(item,index) in menuList" :key="item.routeName"
-                            @click="goPage(item.routeName)" 
+                            @click="goPage(item.routeName)"
                             v-bind:class="{active:$route.name == item.routeName}"
                             :style="{'background-color': $route.name == item.routeName ? $store.state.colorData.top.topBgColor : '#dddddd','border-color': $route.name == item.routeName ? $store.state.colorData.top.topBgColor : '#cccccc',}">
                     {{item.name}}
@@ -52,7 +52,7 @@
                     <p class="zll-botton" @click="()=>{this.$refs.reset.setResetFormData('resetForm')}">提 交</p>
                 </template>
             </popout>
-        </div> 
+        </div>
         <!--切换主题-->
         <color-popout :showPopout.sync="showTheme"></color-popout>
     </div>

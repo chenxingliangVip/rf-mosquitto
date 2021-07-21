@@ -23,9 +23,6 @@ public class LoginController {
     @Autowired
     private ILoginService loginService;
 
-    @Autowired
-    private ClientMQTT clientMQTT;
-
     @RequestMapping("/")
     public String home() {
         return "redirect:index";

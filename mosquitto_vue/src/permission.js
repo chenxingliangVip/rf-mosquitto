@@ -31,9 +31,8 @@ router.beforeEach((to, from, next) => {
 
     //     }
     // }
-    let user = localStorage.getItem('login')
+   let user = store.getters.user
     if (user) {
-        user = JSON.parse(user);
         /* has token*/
         if (to.path == '/' || to.path == '') {
             next({ path: '/Login' })
@@ -45,15 +44,17 @@ router.beforeEach((to, from, next) => {
                 method: "post",
                 params: { userAccount: user.userAccount }
             }).then(function (response) {
-                let _permission = response.result;
-                store.dispatch('user/setPermission', _permission || []);
-                store.dispatch('permission/generateRoutes').then(() => { // 根据roles权限生成可访问的路由表
-                    router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-                    let path = to.path;
-                    let access = allPermissionNarHead[path];
-                    next()
-                });
-                next();
+              store.dispatch('permission/generateRoutes').then(() => { // 根据roles权限生成可访问的路由表
+                localStorage.setItem('loginStatus', 1)
+                router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
+                let path = to.path
+                if (false) {
+                  next({ path: '/Login' })
+                } else {
+                  //   next()
+                  next({ ...to, replace: true })
+                }
+              })
             }).catch(function (resp) {
                 next({ path: '/Login' })
             });
