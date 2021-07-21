@@ -81,8 +81,10 @@
 
 <style scoped lang="scss">
 	.Login {
-		background-image: url(../assets/img/banner_bg1.png);
+		background-image: url(../assets/img/11.png);
 		height: 100%;
+        min-width: 1280px;
+        min-height: 720px;
 		background-size: cover;
 		position: relative;
 		.Header {
@@ -125,13 +127,13 @@
 			top: 50vh;
 			left: 15%;
 			img {
-				height: 100px;
+				height: 120px;
 			}
 		}
 		.loginBody {
 			width: 450px;
 			position: absolute;
-    		right: 15%;
+    		right: 12%;
 			top: 30vh;
 			height: 280px;
 			background-color: rgba(255, 255, 255, 1);
