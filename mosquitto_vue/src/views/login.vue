@@ -2,9 +2,9 @@
   <div class="Login">
     <div class="Header">
       <h3>
-        <img class="logo_img" src="@/assets/img/Login_logo.png">
-        <i></i>
-        睿采智连
+        <img class="logo_img" src="@/assets/img/login_R.png">
+        <!-- <i></i>
+        睿采智连 -->
       </h3>
       <div class="header_top_title">
         <span>2020©睿孚科技</span>
@@ -18,7 +18,7 @@
     <div class="loginBody login_input">
       <div class="login-top">
         <div class="tab">
-          睿采智连· ReLink
+          <img src="@/assets/img/login_title.png" alt="">
         </div>
       </div>
       <el-form ref="loginForm"
@@ -40,7 +40,7 @@
       </el-form>
     </div>
     <div class="footer">
-      <p>Copyright 2019 © Refull All rights reserved 建议使用“Chrome / IE / 搜狗高速” 浏览器</p>
+      <p>Copyright © 2020-2021 睿孚科技 refo.cc版权所有 / 服务热线：025-52288309 / Server@refo.cc</p>
     </div>
   </div>
 </template>
@@ -173,6 +173,7 @@
         position: absolute;
         top: 14px;
         left: 100px;
+        height: 30px;
       }
 
       .header_top_title {
@@ -210,7 +211,6 @@
 
       .login-top {
         box-sizing: border-box;
-        margin-bottom: 20px;
         text-align: center;
         display: flex;
         font-size: 14px;
@@ -222,6 +222,9 @@
           cursor: pointer;
           color: #34bfc6;
           font-size: 22px;
+          img {
+            height: 50px;
+          }
         }
 
         .split {
@@ -257,112 +260,6 @@
       width: 100%;
       padding: 10px;
 
-      p {
-        text-align: center;
-      }
-    }
-  }
-  .Login {
-    background-image: url(../assets/img/11.png);
-    height: 100%;
-    min-width: 1280px;
-    min-height: 720px;
-    background-size: cover;
-    position: relative;
-    .Header {
-      height: 60px;
-      line-height: 60px;
-      color: #e31d1a;
-      background: rgba(255, 255, 255, .8);
-      position: relative;
-      h3 {
-        width: 100%;
-        margin: 0 auto;padding: 0 170px;
-        font-size: 22px;
-        font-weight: normal;
-        position: relative;
-        font-family: SimHei;
-      }
-      span {
-        font-weight: 400;
-        float: right;
-        color: #34bfc6;
-      }
-      .logo_img {
-        position: absolute;
-        top: 14px;
-        left: 100px;
-      }
-      .header_top_title {
-        position: absolute;
-        right: 10px;
-        top: 0;
-        color: #666;
-        font-size: 12px;
-        .split {
-          margin: 0 10px;
-        }
-      }
-    }
-    .device_img {
-      position: absolute;
-      top: 50vh;
-      left: 15%;
-      img {
-        height: 120px;
-      }
-    }
-    .loginBody {
-      width: 450px;
-      position: absolute;
-      right: 12%;
-      top: 30vh;
-      height: 280px;
-      background-color: rgba(255, 255, 255, 1);
-      box-shadow: 0 0 20px #34bfc6;
-      padding: 20px;
-      .login-top {
-        box-sizing: border-box;
-        margin-bottom: 20px;
-        text-align: center;
-        display: flex;
-        font-size: 14px;
-        color: #c7c7c7;
-        .tab {
-          width: 100%;
-          text-align: center;
-          cursor: pointer;
-          color: #34bfc6;
-          font-size: 22px;
-        }
-        .split {
-          width: 20%;
-        }
-      }
-      .login-button {
-        cursor: pointer;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0px;
-        background-color: #34bfc6;
-        margin: 30px auto auto;
-        color: #FFFFFF;
-        font-size: 14px;
-        border-radius: 30px;
-        &:active{
-          opacity: 0.8;
-        }
-      }
-      .el-form {
-        padding: 0 30px;
-      }
-    }
-    .footer {
-      color: #ffffff;
-      position: fixed;
-      bottom: 0px;
-      width: 100%;
-      padding: 10px;
       p {
         text-align: center;
       }

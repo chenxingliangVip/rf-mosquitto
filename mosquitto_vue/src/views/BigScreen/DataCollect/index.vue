@@ -3,7 +3,9 @@
     <nx-full-screen class="allfull screenfull" style="float: right;position: relative;z-index: 1111;"></nx-full-screen>
 
     <div class="header">
-      <p class="title">睿采智连 · 实时数据采集</p>
+      <p class="title">
+        <img src="@/assets/img/big_title.png" alt="">
+      </p>
       <div class="header_left">
         <div :class="['zll-botton',item ==chooseTopic?'':'Info']"  v-for="(item,index) in topics" :key="index" @click="changeTopic(item)">{{item}}</div>
       </div>
@@ -198,6 +200,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="bottom_foot">
+      <p>Copyright © 2020-2021 睿孚科技 refo.cc版权所有 / 服务热线：025-52288309 / Server@refo.cc</p>
     </div>
   </div>
 </template>
