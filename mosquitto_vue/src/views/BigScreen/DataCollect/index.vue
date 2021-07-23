@@ -3,6 +3,7 @@
     <nx-full-screen class="allfull screenfull" style="float: right;position: relative;z-index: 1111;"></nx-full-screen>
 
     <div class="header">
+      <img src="@/assets/img/satistics3.png" alt="" class="header_bg">
       <p class="title">
         <img src="@/assets/img/big_title.png" alt="">
       </p>
@@ -199,10 +200,10 @@
             <div class="right nav">{{item.Content}}</div>
           </div>
         </div>
+        <div class="bottom_foot">
+          <p>Copyright © 2020-2021 睿孚科技 refo.cc版权所有 / 服务热线：025-52288309 / Server@refo.cc</p>
+        </div>
       </div>
-    </div>
-    <div class="bottom_foot">
-      <p>Copyright © 2020-2021 睿孚科技 refo.cc版权所有 / 服务热线：025-52288309 / Server@refo.cc</p>
     </div>
   </div>
 </template>
