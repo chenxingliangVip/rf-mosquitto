@@ -3,7 +3,7 @@
     <nx-full-screen class="allfull screenfull" style="float: right;position: relative;z-index: 1111;"></nx-full-screen>
 
     <div class="header">
-      <img src="@/assets/img/satistics3.png" alt="" class="header_bg">
+      <img src="@/assets/img/satistics2.png" alt="" class="header_bg">
       <p class="title">
         <img src="@/assets/img/big_title.png" alt="">
       </p>
