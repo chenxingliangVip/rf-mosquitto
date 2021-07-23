@@ -14,4 +14,6 @@ public interface IMqtContentService {
 
     boolean addMqtContents(MqtContent mqtContent);
 
+    int queryMqtContentsCounts(MqtContent mqtContent);
+
 }

@@ -155,4 +155,12 @@ public class MqtContentServiceImpl implements IMqtContentService {
         return count > 0;
     }
 
+    @Override
+    public int queryMqtContentsCounts(MqtContent mqtContent) {
+        MqtContentExample example = new MqtContentExample();
+        example.createCriteria().andStatusEqualTo(Constants.NORMAL_STATUS);
+        int count = mqtContentMapper.countByExample(example);
+        return count;
+    }
+
 }

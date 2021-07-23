@@ -75,7 +75,7 @@
             <span class="left">Relink</span>
             <div class="right sh">
               <!-- <div class="share">Relink</div> -->
-              <img class="share" src="@/assets/img/shing.png" alt="">
+              <img :class="['share', mqtRunning?'animation_sh':'']" src="@/assets/img/shing.png" alt="">
             </div>
           </div>
           <div class="input_style"></div>
@@ -219,6 +219,8 @@
         chooseMqtData:{ServoTemperature:[0.0,0.0,0.0],Spindlerateovr:[0.0,0.0,0.0,0.0]},
         chooseTopic:'',
         topics:[],
+        mqtCount:0,
+        mqtRunning:false
       }
     },
     methods: {
@@ -274,17 +276,37 @@
             });
           }
         });
+      },
+      getMqtDataCount(){
+        let self = this;
+        self.$http({
+          url: "/mosquitto/mqt/queryMqtContentsCounts",
+          method: "post",
+          params:{userId:self.userInfo.userId}
+        }).then(resp => {
+          if (resp.success) {
+            let count = resp.result;
+            if(count != self.mqtCount){
+              self.mqtRunning = true;
+            }else{
+              self.mqtRunning = false;
+            }
+            self.mqtCount = count;
+          }
+        });
       }
     },
     components: {
       nxFullScreen
     },
     mounted() {
+      let self = this;
       this.userInfo = this.$store.state.user.userInfo;
       setInterval(() => {
-        this.getdateFormat()
+        self.getdateFormat()
+        self.getMqtDataCount()
       }, 1000);
-      this.getMqtData();
+      self.getMqtData();
     },
   }
 </script>

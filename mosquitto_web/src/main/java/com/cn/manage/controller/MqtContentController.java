@@ -40,4 +40,14 @@ public class MqtContentController {
         return  response;
     }
 
+    @RequestMapping("/queryMqtContentsCounts")
+    @ResponseBody
+    public JsonResponse<Integer> queryMqtContentsCounts(MqtContent mqtContent) throws Exception {
+        JsonResponse<Integer> response = new JsonResponse<Integer>();
+        int count  = mqtContentService.queryMqtContentsCounts(mqtContent);
+        response.setSuccess(true);
+        response.setResult(count);
+        return  response;
+    }
+
 }
