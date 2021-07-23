@@ -1,6 +1,5 @@
 .DataCollect {
     width: 100%;
-    height: 100%;
     min-width: 1200px;
     min-height: 1040px;
     background: rgb(15, 39, 61);
@@ -8,6 +7,7 @@
 	transform-origin: left top 0;
     color: #eeeeee;
     font-size: 14px;
+    position: relative;
     .header {
         width: 100%;
         height: 90px;
@@ -78,7 +78,7 @@
         }
     }
     .main_contain {
-        padding: 0 200px;
+        padding: 0 200px 50px 200px;
         .part-1 {
             display: flex;
             margin-top: 50px;
@@ -235,7 +235,7 @@
     
     .bottom_foot {
         color: #aaa;
-        position: fixed;
+        position: absolute;
         bottom: 10px;
         width: 100%;
         padding: 10px;
