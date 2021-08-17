@@ -44,7 +44,7 @@
       </el-form>
     </div>
     <div class="footer">
-      <p>Copyright © 2020-2021 睿孚科技 refo.cc版权所有 / 服务热线：025-52288309 / Server@refo.cc</p>
+      <p>Copyright © 2020-2021 睿孚科技 refo.cc版权所有 / 服务热线：025-52288309 / service@refo.cc</p>
     </div>
   </div>
 </template>
