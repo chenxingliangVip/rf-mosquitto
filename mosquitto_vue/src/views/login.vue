@@ -2,14 +2,18 @@
   <div class="Login">
     <div class="Header">
       <h3>
-        <img class="logo_img" src="@/assets/img/login_R.png">
+        <a href="http://www.refo.cc" target="_parent">
+          <img class="logo_img" src="@/assets/img/login_R.png">
+        </a>
         <!-- <i></i>
         睿采智连 -->
       </h3>
       <div class="header_top_title">
-        <span>2020©睿孚科技</span>
-        <span class="split">/</span>
-        <span>睿采智连数据采集测试端</span>
+        <a href="http://www.refo.cc" target="_parent">
+          <span>睿孚科技官网</span>
+        </a>
+        <!-- <span class="split">/</span>
+        <span>睿采智连数据采集测试端</span> -->
       </div>
     </div>
     <div class="device_img">
@@ -181,7 +185,7 @@
         right: 10px;
         top: 0;
         color: #666;
-        font-size: 12px;
+        font-size: 14px;
 
         .split {
           margin: 0 10px;
