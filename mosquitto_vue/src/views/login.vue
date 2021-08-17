@@ -184,7 +184,7 @@
         position: absolute;
         right: 10px;
         top: 0;
-        color: #666;
+        color: #666; 
         font-size: 14px;
 
         .split {
