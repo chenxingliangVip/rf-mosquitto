@@ -182,7 +182,7 @@
 
       .header_top_title {
         position: absolute;
-        right: 10px;
+        right: 100px;
         top: 0;
         color: #666; 
         font-size: 14px;
